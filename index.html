@@ -83,7 +83,7 @@
             }
             nav .inner {
                 max-width: 780px;
-                margin: 0 auto;
+                margin: 0 auto;rgba
                 padding: 0 2rem;
                 height: 54px;
                 display: flex;
@@ -442,41 +442,54 @@
             }
             .contact-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 12px;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 10px;
             }
             .contact-card {
                 background: var(--bg2);
                 border: 1px solid var(--border);
-                border-radius: 10px;
-                padding: 1.25rem;
+                border-radius: 8px;
+                padding: 0.55rem 0.6rem;
                 text-decoration: none;
                 color: inherit;
                 display: flex;
-                flex-direction: column;
-                gap: 6px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 7px;
                 transition:
                     border-color 0.2s,
                     background 0.2s;
+                min-width: 0;
             }
             .contact-card:hover {
                 border-color: var(--accent);
                 background: rgba(123, 97, 255, 0.05);
             }
-            .contact-icon {
-                font-size: 20px;
-                margin-bottom: 4px;
+            .contact-card:hover .contact-icon {
+                color: var(--accent2);
             }
-            .contact-label {
+            .contact-icon {
+                display: flex;
+                align-items: center;
+                flex-shrink: 0;
+                color: var(--muted);
+                transition: color 0.2s;
+            }
+            .contact-icon svg {
+                width: 15px;
+                height: 15px;
+            }
+            .contact-val {
                 font-family: var(--mono);
                 font-size: 11px;
                 color: var(--muted);
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
-            .contact-val {
-                font-size: 13px;
-                color: var(--text);
+            .contact-card:hover .contact-val {
+                color: var(--accent2);
             }
             footer {
                 padding: 2rem 0;
@@ -484,6 +497,27 @@
                 font-family: var(--mono);
                 font-size: 12px;
                 color: var(--muted);
+            }
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 6px 14px;
+                margin-bottom: 0.75rem;
+            }
+            .footer-links a {
+                font-size: 11px;
+                color: var(--muted);
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+            .footer-links a:hover {
+                color: var(--accent2);
+            }
+            .footer-links .sep {
+                color: var(--border-hover);
+                user-select: none;
             }
             .fade-in {
                 opacity: 0;
@@ -514,7 +548,12 @@
                     grid-template-columns: 1fr;
                 }
                 .contact-grid {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+                @media (max-width: 400px) {
+                    .contact-grid {
+                        grid-template-columns: 1fr;
+                    }
                 }
                 .terminal {
                     pointer-events: none;
@@ -649,7 +688,7 @@
         <div id="progress"></div>
         <nav>
             <div class="inner">
-                <span class="nav-logo">sharma.dev</span>
+                <span class="nav-logo">SharmathePeak</span>
                 <div class="nav-links">
                     <a href="#about">about</a>
                     <a href="#projects">projects</a>
@@ -659,7 +698,7 @@
         </nav>
         <main class="container">
             <div class="hero fade-in">
-                <div class="hero-eyebrow">self-taught · systems programmer</div>
+                <div class="hero-eyebrow">game dev · systems programmer</div>
                 <h1>Vishnu<br /><span>Sharma.</span></h1>
                 <p class="hero-sub">
                     I build things from scratch to understand how they actually
@@ -691,6 +730,30 @@
                         </svg>
                         @sharmathepeak
                     </a>
+                    <a
+                        class="pill"
+                        href="https://www.linkedin.com/in/sharmathepeak/"
+                        target="_blank"
+                    >
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                            />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a
+                        class="pill"
+                        href="https://youtube.com/@SharmathePeak"
+                        target="_blank"
+                    >
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                            />
+                        </svg>
+                        YouTube
+                    </a>
                     <a class="pill" href="mailto:sharmathepeak@gmail.com">
                         <svg
                             viewBox="0 0 24 24"
@@ -718,8 +781,9 @@
                     <div class="term-body" id="term-body"></div>
                 </div>
                 <p class="about-text">
-                    I'm <strong>Vishnu Sharma</strong>, a self-taught systems
-                    programmer and CSE student. I've been
+                    I'm <strong>Vishnu Sharma</strong>, a systems programmer and
+                    game dev studying CSE at
+                    <strong>Vasavi College of Engineering</strong>. I've been
                     coding since before college, teaching myself C, C++, Python,
                     and low-level systems work from scratch — because I actually
                     want to know what's happening under the hood.
@@ -729,18 +793,20 @@
                     without libraries, a Brainfuck interpreter, terminal apps,
                     2D games in pure C++. I'm also into
                     <strong>Linux ricing</strong> on Arch with Hyprland,
-                    drawing, and learning the path from C all the way to
-                    Assembly.
+                    drawing, and low-level work in C, C++, Python, and GDScript.
                 </p>
                 <div class="stack-row">
                     <span class="tag">C</span>
                     <span class="tag">C++</span>
                     <span class="tag">Python</span>
+                    <span class="tag">Game Dev</span>
+                    <span class="tag">Godot</span>
                     <span class="tag">OpenGL</span>
                     <span class="tag">ncurses</span>
                     <span class="tag">Arch Linux</span>
                     <span class="tag">Hyprland</span>
                     <span class="tag">Drawing</span>
+                    <span class="tag">Guitar</span>
                     <span class="tag">Git</span>
                     <span class="tag">Bash</span>
                 </div>
@@ -917,33 +983,91 @@
                         class="contact-card"
                         href="mailto:sharmathepeak@gmail.com"
                     >
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-label">Email</div>
-                        <div class="contact-val">sharmathepeak@gmail.com</div>
+                        <span class="contact-icon">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            >
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </span>
+                        <span class="contact-val">gmail.com</span>
                     </a>
                     <a
                         class="contact-card"
                         href="https://github.com/SharmathePeak"
                         target="_blank"
                     >
-                        <div class="contact-icon">⚙️</div>
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-val">github.com/SharmathePeak</div>
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                />
+                            </svg>
+                        </span>
+                        <span class="contact-val">github.com</span>
+                    </a>
+                    <a
+                        class="contact-card"
+                        href="https://www.linkedin.com/in/sharmathepeak/"
+                        target="_blank"
+                    >
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                                />
+                            </svg>
+                        </span>
+                        <span class="contact-val">linkedin.com</span>
+                    </a>
+                    <a
+                        class="contact-card"
+                        href="https://youtube.com/@SharmathePeak"
+                        target="_blank"
+                    >
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                                />
+                            </svg>
+                        </span>
+                        <span class="contact-val">youtube.com</span>
                     </a>
                     <a
                         class="contact-card"
                         href="https://instagram.com/sharmathepeak"
                         target="_blank"
                     >
-                        <div class="contact-icon">📸</div>
-                        <div class="contact-label">Instagram</div>
-                        <div class="contact-val">@sharmathepeak</div>
+                        <span class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                />
+                            </svg>
+                        </span>
+                        <span class="contact-val">instagram.com</span>
                     </a>
                 </div>
             </section>
         </main>
         <footer>
             <div class="container">
+                <div class="footer-links">
+                    <a href="mailto:sharmathepeak@gmail.com">email</a>
+                    <span class="sep">·</span>
+                    <a href="https://github.com/SharmathePeak" target="_blank">github</a>
+                    <span class="sep">·</span>
+                    <a href="https://www.linkedin.com/in/sharmathepeak/" target="_blank">linkedin</a>
+                    <span class="sep">·</span>
+                    <a href="https://youtube.com/@SharmathePeak" target="_blank">youtube</a>
+                    <span class="sep">·</span>
+                    <a href="https://instagram.com/sharmathepeak" target="_blank">instagram</a>
+                </div>
                 built by Sharma · <span id="yr"></span>
             </div>
         </footer>
@@ -1137,29 +1261,45 @@
                 { type: "prompt", cmd: "cat about.txt" },
                 { type: "out", text: "" },
                 { type: "out", text: "  name    :  Vishnu Sharma", hl: true },
+                {
+                    type: "out",
+                    text: "  college :  Vasavi College of Engineering",
+                },
                 { type: "out", text: "  status  :  CSE student" },
                 {
                     type: "out",
-                    text: "  focus   :  Systems programming, low-level C/C++",
+                    text: "  focus   :  Systems programming, game dev, Godot, low-level C/C++",
                 },
                 {
                     type: "out",
-                    text: "  hobbies :  Linux ricing, drawing, game dev",
+                    text: "  hobbies :  Linux ricing, drawing, game dev, guitar",
                 },
                 {
                     type: "out",
-                    text: "  vibes   :  Good Night Eri, Steins;Gate, Chainsaw Man",
-                },
-                {
-                    type: "out",
-                    text: "  author  :  Tatsuki Fujimoto",
-                    hl: true,
+                    text: "  favorite shows :  Good Night Eri, Steins;Gate, Chainsaw Man, One Piece, Bleach",
                 },
                 { type: "out", text: "" },
-                { type: "prompt", cmd: "echo $LEARNING_PATH" },
+                { type: "prompt", cmd: "cat contact.txt" },
+                { type: "out", text: "" },
                 {
                     type: "out",
-                    text: '  <span style="color:#22c55e">Python</span> \u2192 <span style="color:#22c55e">C++</span> \u2192 <span style="color:#22c55e">C</span> \u2192 <span style="color:#eab308">Assembly</span>',
+                    text: "  email     :  gmail.com",
+                },
+                {
+                    type: "out",
+                    text: "  github    :  github.com",
+                },
+                {
+                    type: "out",
+                    text: "  linkedin  :  linkedin.com",
+                },
+                {
+                    type: "out",
+                    text: "  youtube   :  youtube.com",
+                },
+                {
+                    type: "out",
+                    text: "  instagram :  instagram.com",
                 },
                 { type: "out", text: "" },
             ];
@@ -1240,11 +1380,20 @@
             const ABOUT_TXT = [
                 "",
                 "  name    :  Vishnu Sharma",
+                "  college :  Vasavi College of Engineering",
                 "  status  :  CSE student",
-                "  focus   :  Systems programming, low-level C/C++",
-                "  hobbies :  Linux ricing, drawing, game dev",
-                "  vibes   :  Good Night Eri, Steins;Gate, Chainsaw Man",
-                "  author  :  Tatsuki Fujimoto",
+                "  focus   :  Systems programming, game dev, Godot, low-level C/C++",
+                "  hobbies :  Linux ricing, drawing, game dev, guitar",
+                "  favorite shows :  Good Night Eri, Steins;Gate, Chainsaw Man, One Piece, Bleach",
+                "",
+            ];
+            const CONTACT_TXT = [
+                "",
+                "  email     :  gmail.com",
+                "  github    :  github.com",
+                "  linkedin  :  linkedin.com",
+                "  youtube   :  youtube.com",
+                "  instagram :  instagram.com",
                 "",
             ];
             const LEARNING_PATH_LINE =
@@ -1256,7 +1405,7 @@
                 if (cmd === "sudo rm -rf /") {
                     printLine("Permission denied: nice try.", { hl: true });
                 } else if (cmd === "ls") {
-                    printLine("about.txt  secret_documents.txt");
+                    printLine("about.txt  contact.txt  secret_documents.txt");
                 } else if (cmd === "whoami") {
                     printLine("sharma");
                 } else if (cmd === "help") {
@@ -1264,14 +1413,17 @@
                     printLine("  ls");
                     printLine("  cat &lt;file&gt;");
                     printLine("  echo &lt;text&gt;");
+                    printLine("  echo $LEARNING_PATH");
                     printLine("  whoami");
                     printLine("  reboot");
                 } else if (cmd === "cat about.txt") {
                     ABOUT_TXT.forEach((line, idx) =>
                         printLine(line, {
-                            hl: idx === 1 || idx === 6,
+                            hl: idx === 1,
                         }),
                     );
+                } else if (cmd === "cat contact.txt") {
+                    CONTACT_TXT.forEach((line) => printLine(line));
                 } else if (cmd === "cat secret_documents.txt") {
                     SECRET_DOC.split("\n").forEach((line) => printLine(line));
                 } else if (cmd === "cat" || cmd.startsWith("cat ")) {
